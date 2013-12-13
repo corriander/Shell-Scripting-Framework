@@ -1,0 +1,20 @@
+#!/bin/bash
+# Create a new bash script.
+#
+# Generates a new bash script named after the first argument with a
+# shebang already inserted. The script is generated in the same folder
+# as this one (it makes sense for it to live in the user's scripts
+# folder, e.g. `~/.scripts/`.
+
+SCRIPT_BASENAME=$1
+SCRIPT_DIR=`dirname $0`
+SCRIPT_NAME=$SCRIPT_DIR/$SCRIPT_BASENAME
+
+if [ -f $SCRIPT_NAME ] ; then
+	echo "Script: new_script: $SCRIPT_NAME exists, exiting..."
+	exit 1
+fi
+
+echo '#!/bin/bash' > $SCRIPT_NAME
+chmod u+x $SCRIPT_NAME
+$EDITOR $SCRIPT_NAME
