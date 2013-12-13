@@ -7,7 +7,7 @@
 # folder, e.g. `~/.scripts/`.
 
 SCRIPT_BASENAME=$1
-SCRIPT_DIR=`dirname $0`
+SCRIPT_DIR=${SSF_DIR_LIB:-$HOME/.scripts}
 SCRIPT_NAME=$SCRIPT_DIR/$SCRIPT_BASENAME
 
 if [ -f $SCRIPT_NAME ] ; then

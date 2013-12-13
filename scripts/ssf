@@ -1,0 +1,23 @@
+#!/bin/bash
+# Front-end for shell scripting framework
+
+# Set default directories
+DIR_SCR=~/.scripts
+DIR_SSF=~/.scripts
+DIR_LIB=~/.scripts/ssf.d
+
+command=$1
+
+case $command in
+	new)
+		# New script, invokes `new_script` script
+		$DIR_LIB/new_script $2
+		;;
+	fun)
+		# Fetch function, invokes `print_function` script
+		$DIR_LIB/print_function $2
+		;;
+	*)
+		echo "Script: SSF: command not recognised"
+		;;
+esac
